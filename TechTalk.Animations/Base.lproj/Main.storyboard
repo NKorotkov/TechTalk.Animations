@@ -26,10 +26,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Transitions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qic-9z-8NH">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Built-in Transitions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qic-9z-8NH">
                                                     <rect key="frame" x="20" y="0.0" width="356.5" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -47,16 +47,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qr5-s1-vez">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Custom Transition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qr5-s1-vez">
                                                     <rect key="frame" x="20" y="0.0" width="356.5" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <segue destination="L6C-I4-n09" kind="show" id="nZG-mG-CDZ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="bp8-TP-QF5" rowHeight="64" style="IBUITableViewCellStyleDefault" id="lZh-rL-2i5">
                                         <rect key="frame" x="0.0" y="146" width="414" height="64"/>
@@ -68,7 +71,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bp8-TP-QF5">
                                                     <rect key="frame" x="20" y="0.0" width="356.5" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -88,9 +91,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQr-C7-0nR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="974" y="117"/>
+            <point key="canvasLocation" x="941" y="117"/>
         </scene>
-        <!--Transitions-->
+        <!--Built-in-->
         <scene sceneID="dOM-A2-bAy">
             <objects>
                 <viewController id="JLK-KD-mLh" customClass="TransitionsViewController" customModule="TechTalk_Animations" customModuleProvider="target" sceneMemberID="viewController">
@@ -100,7 +103,7 @@
                         <viewLayoutGuide key="safeArea" id="SqY-F2-CUx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Transitions" id="Y5s-s6-otl"/>
+                    <navigationItem key="navigationItem" title="Built-in" id="Y5s-s6-otl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uzJ-Qc-yqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -117,12 +120,28 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="sp3-Ds-BYW" kind="relationship" relationship="rootViewController" id="7he-mk-Agg"/>
+                        <segue destination="sp3-Ds-BYW" kind="relationship" relationship="rootViewController" id="9H5-ad-sH9"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktm-ef-Xk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
+        </scene>
+        <!--Custom-->
+        <scene sceneID="PXf-PY-5wf">
+            <objects>
+                <viewController id="L6C-I4-n09" customClass="CustomTransitionsViewController" customModule="TechTalk_Animations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FPX-SE-lxX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="jgn-5e-JpJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Custom" id="bt1-Od-ygc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FZi-F6-GgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2526" y="117"/>
         </scene>
     </scenes>
     <resources>

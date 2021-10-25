@@ -14,6 +14,8 @@
 		99FE54A327272E3C00EEE0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99FE54A227272E3C00EEE0F8 /* Assets.xcassets */; };
 		99FE54A627272E3C00EEE0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FE54A427272E3C00EEE0F8 /* LaunchScreen.storyboard */; };
 		99FE54AE2727320000EEE0F8 /* TransitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FE54AD2727320000EEE0F8 /* TransitionsViewController.swift */; };
+		99FE54B027273C4600EEE0F8 /* UIView+Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FE54AF27273C4600EEE0F8 /* UIView+Transition.swift */; };
+		99FE54B2272754D800EEE0F8 /* CusomTransitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FE54B1272754D800EEE0F8 /* CusomTransitionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		99FE54A527272E3C00EEE0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99FE54A727272E3C00EEE0F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99FE54AD2727320000EEE0F8 /* TransitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionsViewController.swift; sourceTree = "<group>"; };
+		99FE54AF27273C4600EEE0F8 /* UIView+Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Transition.swift"; sourceTree = "<group>"; };
+		99FE54B1272754D800EEE0F8 /* CusomTransitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusomTransitionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				99FE549B27272E3A00EEE0F8 /* SceneDelegate.swift */,
 				99FE549D27272E3A00EEE0F8 /* RootViewController.swift */,
 				99FE54AD2727320000EEE0F8 /* TransitionsViewController.swift */,
+				99FE54B1272754D800EEE0F8 /* CusomTransitionsViewController.swift */,
+				99FE54AF27273C4600EEE0F8 /* UIView+Transition.swift */,
 				99FE549F27272E3A00EEE0F8 /* Main.storyboard */,
 				99FE54A227272E3C00EEE0F8 /* Assets.xcassets */,
 				99FE54A427272E3C00EEE0F8 /* LaunchScreen.storyboard */,
@@ -142,9 +148,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				99FE549E27272E3A00EEE0F8 /* RootViewController.swift in Sources */,
+				99FE54B2272754D800EEE0F8 /* CusomTransitionsViewController.swift in Sources */,
 				99FE549A27272E3A00EEE0F8 /* AppDelegate.swift in Sources */,
 				99FE549C27272E3A00EEE0F8 /* SceneDelegate.swift in Sources */,
 				99FE54AE2727320000EEE0F8 /* TransitionsViewController.swift in Sources */,
+				99FE54B027273C4600EEE0F8 /* UIView+Transition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

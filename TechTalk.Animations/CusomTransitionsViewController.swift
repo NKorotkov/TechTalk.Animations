@@ -1,5 +1,5 @@
 //
-//  TransitionsViewController.swift
+//  CustomTransitionsViewController.swift
 //  TechTalk.Animations
 //
 //  Created by KOROTKOV Nikolay on 25.10.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TransitionsViewController: UIViewController {
+class CustomTransitionsViewController: UIViewController {
     
     private let text = "100,00 ₽"
     
@@ -25,14 +25,11 @@ class TransitionsViewController: UIViewController {
         return label
     }()
     
-    private let transitions: [String : UIView.AnimationOptions] = [
-        "transitionCurlUp" : .transitionCurlUp,
-        "transitionCurlDown" : .transitionCurlDown,
-        "transitionCrossDissolve" : .transitionCrossDissolve,
-        "transitionFlipFromTop" : .transitionFlipFromTop,
-        "transitionFlipFromLeft" : .transitionFlipFromLeft,
-        "transitionFlipFromRight" : .transitionFlipFromRight,
-        "transitionFlipFromBottom" : .transitionFlipFromBottom
+    private let transitions: [String : UIView.ExtraTransitions] = [
+        "slideFromLeft" : .slideFromLeft,
+        "slideFromTop" : .slideFromTop,
+        "slideFromRight" : .slideFromRight,
+        "slideFromBottom" : .slideFromBottom
     ]
     
     private lazy var transitionsKeys = transitions.map { $0.key }
@@ -45,7 +42,7 @@ class TransitionsViewController: UIViewController {
         return picker
     }()
     
-    lazy var currentTransition: UIView.AnimationOptions = transitions[transitionsKeys.first!]!
+    lazy var currentTransition: UIView.ExtraTransitions = transitions[transitionsKeys.first!]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,24 +65,18 @@ class TransitionsViewController: UIViewController {
     
     @objc
     func animate() {
-        /// Animates only **animatable** UI changes
-        UIView.animate(
-            withDuration: 0.25,
-            delay: 0,
-            options: [.repeat, .autoreverse]
+        /// Custom transition
+        UIView.transition(
+            with: label,
+            duration: 0.3,
+            transition: currentTransition
         ) {
-            self.label.transform = .init(scaleX: 1.5, y: 1.5)
+            self.label.text = self.nextText
         }
-        
-        /// Animates **non-animatable** UI changes
-//        UIView.transition(with: label, duration: 1, options: [.repeat, .autoreverse]) {
-//            self.label.text = self.nextText
-////            self.label.backgroundColor = self.label.backgroundColor == .red ? .green : .red
-//        }
     }
 }
 
-extension TransitionsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension CustomTransitionsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
