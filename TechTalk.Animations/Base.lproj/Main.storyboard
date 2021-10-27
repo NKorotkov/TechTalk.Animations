@@ -68,7 +68,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bp8-TP-QF5">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Custom Animatable Property" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bp8-TP-QF5">
                                                     <rect key="frame" x="20" y="0.0" width="356.5" height="64"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -78,6 +78,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <segue destination="6yU-y6-sPl" kind="show" id="ix8-gp-Js8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -93,10 +96,26 @@
             </objects>
             <point key="canvasLocation" x="941" y="117"/>
         </scene>
+        <!--Progress Bar-->
+        <scene sceneID="GJI-ce-BNd">
+            <objects>
+                <viewController id="6yU-y6-sPl" customClass="CustomLayerPropertiesViewController" customModule="TechTalk_Animations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lPJ-1t-uxw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MCz-Gq-UBB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Progress Bar" id="P6i-Bl-bOb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pe6-Ig-NEb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1741" y="-575"/>
+        </scene>
         <!--Built-in-->
         <scene sceneID="dOM-A2-bAy">
             <objects>
-                <viewController id="JLK-KD-mLh" customClass="TransitionsViewController" customModule="TechTalk_Animations" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JLK-KD-mLh" customClass="BuiltInTransitionsViewController" customModule="TechTalk_Animations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wFu-Tp-hNB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZi-F6-GgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526" y="117"/>
+            <point key="canvasLocation" x="1742" y="846"/>
         </scene>
     </scenes>
     <resources>

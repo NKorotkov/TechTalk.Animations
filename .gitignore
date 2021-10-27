@@ -1,0 +1,25 @@
+*.xccheckout
+*.xcworkspace
+*.DS_Store
+xcuserdata/
+Pods/
+test-reports/
+.idea
+Build/
+
+# Bundler generated
+vendor/
+.bundle/
+
+# Fastlane generated
+fastlane/report.xml
+fastlane/test_output/
+
+compile_commands.json
+.bundle/config
+
+# Swift Package Manager generated
+/.swiftpm
+/.build
+/Packages
+

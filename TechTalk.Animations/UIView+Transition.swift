@@ -45,28 +45,44 @@ extension UIView {
 }
 
 extension UIView {
-    class func transition(with view: UIView, duration: TimeInterval, transition: ExtraTransitions, options: UIView.AnimationOptions = [], animations: (() -> Void)?, completion: ((Bool) -> Void)? = nil) {
-        
+    class func transition(
+        with view: UIView,
+        duration: TimeInterval,
+        transition: ExtraTransitions,
+        options: UIView.AnimationOptions = [],
+        animations: (() -> Void)?,
+        completion: ((Bool) -> Void)? = nil
+    ) {
         guard let superview = view.superview,
-        let snapshot = view.snapshotView(afterScreenUpdates: false)
+              // Создаем снапшот view
+              let snapshot = view.snapshotView(afterScreenUpdates: false)
         else { return }
         
+        // Задаем снапшоту положение идентичное оригинальной view
         snapshot.frame = snapshot.frame.offsetBy(
             dx: view.frame.origin.x,
             dy: view.frame.origin.y
         )
         
         superview.addSubview(snapshot)
-        view.transform = transition.originalTransform
+        
+        // делаем оригинальную вьюшку невидимой и сдвигаем для последующей анимации
         view.alpha = 0
+        view.transform = transition.originalTransform
+        // применяем неанимируемые изменения
         animations?()
         
+        
         UIView.animate(withDuration: duration, delay: 0, options: options) {
+            // снапшот оригинальной вью уезжает и становится прозрачным
             snapshot.transform = transition.snapshotTransform
+            snapshot.alpha = 0
+            // оригинальная view но со всеми изменениями приезжает на место снапшота
             view.transform = .identity
             view.alpha = 1
-            snapshot.alpha = 0
+            
         } completion: {
+            // снапшот нам больше не нужен
             snapshot.removeFromSuperview()
             completion?($0)
         }

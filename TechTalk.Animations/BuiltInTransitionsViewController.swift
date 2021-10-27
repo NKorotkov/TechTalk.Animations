@@ -1,5 +1,5 @@
 //
-//  TransitionsViewController.swift
+//  BuiltInTransitionsViewController.swift
 //  TechTalk.Animations
 //
 //  Created by KOROTKOV Nikolay on 25.10.2021.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class TransitionsViewController: UIViewController {
+class BuiltInTransitionsViewController: UIViewController {
     
-    private let text = "100,00 ₽"
+    private let text = " 100,00 ₽ "
     
-    private let alternativeText = "537,20 ₽"
+    private let alternativeText = " 537,20 ₽ "
     
     private var nextText: String {
         label.text == text ? alternativeText : text
@@ -22,6 +22,8 @@ class TransitionsViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 28, weight: .medium)
         label.text = text
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.layer.cornerRadius = 8
+        label.clipsToBounds = true
         return label
     }()
     
@@ -63,29 +65,37 @@ class TransitionsViewController: UIViewController {
             picker.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Start", style: .plain, target: self, action: #selector(animate))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Scale", style: .plain, target: self, action: #selector(animateAnimatableProperties))
     }
     
     @objc
-    func animate() {
+    func animateAnimatableProperties() {
         /// Animates only **animatable** UI changes
+        print(String(describing: label.action(for: label.layer, forKey: "position")))
         UIView.animate(
             withDuration: 0.25,
             delay: 0,
-            options: [.repeat, .autoreverse]
+            options: []
         ) {
-            self.label.transform = .init(scaleX: 1.5, y: 1.5)
+            print(String(describing: self.label.action(for: self.label.layer, forKey: "position")))
+            self.label.transform = self.label.transform == .identity ? .init(scaleX: 1.5, y: 1.5) : .identity
         }
-        
+    }
+    
+    private func animateTransition() {
         /// Animates **non-animatable** UI changes
-//        UIView.transition(with: label, duration: 1, options: [.repeat, .autoreverse]) {
-//            self.label.text = self.nextText
-////            self.label.backgroundColor = self.label.backgroundColor == .red ? .green : .red
-//        }
+        UIView.transition(
+            with: label,
+            duration: 0.5,
+            options: [currentTransition]
+        ) {
+            self.label.text = self.nextText
+            self.label.backgroundColor = self.label.backgroundColor == .red ? .green : .red
+        }
     }
 }
 
-extension TransitionsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension BuiltInTransitionsViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
@@ -100,6 +110,26 @@ extension TransitionsViewController: UIPickerViewDataSource, UIPickerViewDelegat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentTransition = transitions[transitionsKeys[row]]!
-        animate()
+        animateTransition()
+    }
+}
+
+
+// Примерная идея, как реализован CALayerDelegate внутри UIView
+class UIView_: UIView {
+    
+    // В такой реализации свойство является "выключателем" всех анимаций на уровне UIView
+    private static var animationsEnabled: Bool = false
+    
+    override class func animate(withDuration duration: TimeInterval, animations: @escaping () -> Void) {
+        animationsEnabled = true
+        animations()
+        animationsEnabled = false
+    }
+    
+    override func action(for layer: CALayer, forKey event: String) -> CAAction? {
+        guard Self.animationsEnabled else { return NSNull() }
+        
+        return layer.action(forKey: event)
     }
 }
