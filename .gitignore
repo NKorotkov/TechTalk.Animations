@@ -6,14 +6,19 @@ Pods/
 test-reports/
 .idea
 Build/
+Snapshots/Artifacts/
 
 # Bundler generated
 vendor/
 .bundle/
 
+Gemfile.lock
+Podfile.lock
+
 # Fastlane generated
 fastlane/report.xml
 fastlane/test_output/
+reports/
 
 compile_commands.json
 .bundle/config
@@ -22,4 +27,3 @@ compile_commands.json
 /.swiftpm
 /.build
 /Packages
-
